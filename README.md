@@ -1,14 +1,26 @@
-# Welcome to your CDK TypeScript project
+# Sample Lambda function NODE 18 with @aws-sdk/client-s3.
 
-This is a blank project for CDK development with TypeScript.
+cdk.json configured for hotswap on JS compiled lambda functions
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Dev commands
 
-## Useful commands
+Start TS compile watch, and set CDK to hotswap
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+- `npm run watch` watch for changes and compile
+- `cdk watch --hotswap` deploy this stack to your default AWS account/region
+
+NOTE: Following settings in cdk.json trigger deployys on:
+
+- compiles of TS lambda functions to JS (on save) for hotswap
+- save changes to TS app/stack files
+
+```
+"exclude": [
+      ...
+      "lambda/*.ts",
+      "lib/*.js",
+      "bin/*.js",
+      "jest.config.js",
+      ...
+    ]
+```
