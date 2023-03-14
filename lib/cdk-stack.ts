@@ -10,11 +10,12 @@ export class CdkStack extends cdk.Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
-    const func = new lambda.Function(this, "function", {
+    const func = new lambda.Function(this, "ListBucketsFn", {
       functionName: "CDK_listbuckets",
       runtime: lambda.Runtime.NODEJS_18_X,
       code: lambda.Code.fromAsset(path.join(__dirname, "../lambda")),
       handler: "listbuckets.handler",
+      timeout: cdk.Duration.seconds(5),
     });
 
     // Authn for S3

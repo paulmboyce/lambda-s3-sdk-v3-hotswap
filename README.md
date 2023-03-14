@@ -2,6 +2,22 @@
 
 cdk.json configured for hotswap on JS compiled lambda functions
 
+## SAM Local Testing
+
+1. Start Docker
+2. `cdk synth --no-staging` - to build the JSON template (./cdk.out/CdkStack.template.json)
+3. `sam local invoke ListBucketsFn --no-event -t ./cdk.out/CdkStack.template.json`
+
+NOTE: The function name is the logical id param in CDK (`lambda.Function(this, "ListBucketsFn", {...})`), not the functionName prop you would see in Lambda console.
+
+SEE: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-cdk-getting-started.html
+
+## Instal SAM
+
+```
+$ brew install aws/tap/aws-sam-cli
+```
+
 ## Dev commands
 
 Start TS compile watch, and set CDK to hotswap
