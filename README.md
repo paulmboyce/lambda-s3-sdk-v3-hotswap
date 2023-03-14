@@ -12,6 +12,8 @@ NOTE: The function name is the logical id param in CDK (`lambda.Function(this, "
 
 SEE: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-cdk-getting-started.html
 
+SEE: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-cdk-testing.html
+
 ## Instal SAM
 
 ```
